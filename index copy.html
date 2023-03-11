@@ -1,0 +1,215 @@
+
+include_once "encabezado.php" 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGINAWEB - Evaluacion de Conceptos</title>
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- FONT OSWALD -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <div class="container">
+        <nav class="nav-main">
+            <img src="/img/logo.png" alt="PAGINAWEB LOGO" class="nav-brand">
+            <ul class="nav-menu">
+                <li>
+                    <a href="productos.html">Nuestros Productos</a>
+                </li>
+                <li>
+                    <a href="#">Promociones</a>
+                </li>
+                <li>
+                    <a href="#">Consulta Medica</a>
+                </li>
+                <li>
+                    <a href="#">Ofertas</a>
+                </li>
+                <li>
+                    <a href="#">Quienes Somos</a>
+                </li>
+                <li>
+                    <a href="#">Contacto</a>
+                </li>
+                <li>
+                    <a href="carrito/tienda.php">Carrito</a>
+                </li>
+            </ul>
+            <ul class="nav-menu-right">
+                <li>
+                    <a href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <hr>
+
+        <!--  SHOWCASE  -->
+
+        <header class="showcase">
+            <h3>Farmacia G y C</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <a href="#" class="btn">Aprenda mas <i class="fas fa-angle-double-right"></i> </a>
+
+
+        </header>
+
+        <header>
+            
+            </form><br>
+            Aqui puedes descargar el archivo de la pagina del tec: <br><br><a href="archivotecslp.txt">Descargar FICHERO DE PRUEBA.txt</a><br><br>
+            <p></p>
+                       
+            Aqui puedes seleccionar una fecha: <br><br><input type="date" ...><br>
+            <p></p>
+        
+            Aqui puedes subir un archivo: <br><p><form id="formulario" action="/procesarPeticion" method="multipart/form-data">
+                <input id="fichero" name="fichero" type="file">
+
+            </p>
+        
+          <!-- aqui empieza el carrusel-->
+        
+          <head>
+            <meta charset="UTF-8">
+            <title>Ejemplo</title>
+            <style type="text/css" media="screen">
+          .carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+        }
+        #imagen {
+            width: 600px;
+            height: 400px;
+            background-size: cover;
+        }
+        </style>
+        
+        <script>
+        window.onload = function () {
+            // Variables
+            const IMAGENES = [
+                'img/2.jpg',
+                'img/3.jpg',
+                'img/4.jpg'
+            ];
+            const TIEMPO_INTERVALO_MILESIMAS_SEG = 1500;
+            let posicionActual = 0;
+            let $botonRetroceder = document.querySelector('#retroceder');
+            let $botonAvanzar = document.querySelector('#avanzar');
+            let $imagen = document.querySelector('#imagen');
+            let $botonPlay = document.querySelector('#play');
+            let $botonStop = document.querySelector('#stop');
+            let intervalo;
+        
+            // Funciones
+        
+            /**
+             * Funcion que cambia la foto en la siguiente posicion
+             */
+            function pasarFoto() {
+                if(posicionActual >= IMAGENES.length - 1) {
+                    posicionActual = 0;
+                } else {
+                    posicionActual++;
+                }
+                renderizarImagen();
+            }
+        
+            /**
+             * Funcion que cambia la foto en la anterior posicion
+             */
+            function retrocederFoto() {
+                if(posicionActual <= 0) {
+                    posicionActual = IMAGENES.length - 1;
+                } else {
+                    posicionActual--;
+                }
+                renderizarImagen();
+            }
+        
+            /**
+             * Funcion que actualiza la imagen de imagen dependiendo de posicionActual
+             */
+            function renderizarImagen () {
+                $imagen.style.backgroundImage = `url(${IMAGENES[posicionActual]})`;
+            }
+        
+            /**
+             * Activa el autoplay de la imagen
+             */
+            function playIntervalo() {
+                intervalo = setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
+                // Desactivamos los botones de control
+                $botonAvanzar.setAttribute('disabled', true);
+                $botonRetroceder.setAttribute('disabled', true);
+                $botonPlay.setAttribute('disabled', true);
+                $botonStop.removeAttribute('disabled');
+        
+            }
+        
+            /**
+             * Para el autoplay de la imagen
+             */
+            function stopIntervalo() {
+                clearInterval(intervalo);
+                // Activamos los botones de control
+                $botonAvanzar.removeAttribute('disabled');
+                $botonRetroceder.removeAttribute('disabled');
+                $botonPlay.removeAttribute('disabled');
+                $botonStop.setAttribute('disabled', true);
+            }
+        
+            // Eventos
+            $botonAvanzar.addEventListener('click', pasarFoto);
+            $botonRetroceder.addEventListener('click', retrocederFoto);
+            $botonPlay.addEventListener('click', playIntervalo);
+            $botonStop.addEventListener('click', stopIntervalo);
+            // Iniciar
+            renderizarImagen();
+        } 
+        </script>
+        </head>
+        <body>
+        <div class="carousel">
+        <button id="retroceder">Retroceder</button>
+        <div id="imagen"></div>
+        <button id="avanzar">Avanzar</button>
+        </div>
+        <div class="controles">
+        <button id="play">Play</button>
+        <button id="stop" disabled>Stop</button>
+        </div>
+        </body>     
+        
+        <!-- Aqui termina el carrusel-->
+
+
+        <!--  NEWS CARDS  -->
+      
+            
+            
+            
+        </div>
+        <script src="//code.tidio.co/u2doblmkwr4cejhwwgctlyaf480jn2d7.js" async></script>
+        
+        <div class="mapas"> 
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3695.8191378578817!2d-100.91607785017572!3d22.132870504474642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842aa395563450a3%3A0x9dfb5458875343e1!2sPrados%20de%20San%20Vicente%202da%20Secc%2C%2078394%20San%20Luis%2C%20S.L.P.!5e0!3m2!1ses!2smx!4v1676135913412!5m2!1ses!2smx"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+</body>
+</html>

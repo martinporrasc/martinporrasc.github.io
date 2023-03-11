@@ -1,0 +1,10 @@
+<div id="mensaje"></div>
+<script>
+  var mensaje = document.getElementById("mensaje");
+  mensaje.innerHTML = "El idioma por defecto es " + navigator.language;
+</script>
+<body onlanguagechange="cambioIdioma();"></body>
+
+function cambioIdioma(){
+    mensaje.innerHTML = "Se ha cambiado el idioma del documento a " +   navigator.language;
+  }
